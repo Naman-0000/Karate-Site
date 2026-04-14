@@ -1,0 +1,268 @@
+/* --- 1. CORE VARIABLES & GLOBAL RESET --- */
+:root {
+    --accent: #e63946;
+    --dark: #000000;
+    --white: #ffffff;
+    --gray: #f4f4f4;
+    --main-bg: #f5f5f7;
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: var(--font-body); 
+    background: var(--white); 
+    color: var(--dark); 
+    line-height: 1.6; 
+    overflow-x: hidden; 
+}
+
+h1, h2, h3, h4 { 
+    font-family: var(--font-heading); 
+    text-transform: uppercase; 
+    font-weight: 700; 
+}
+
+/* --- 2. GLOBAL NAVIGATION (Fixed on all pages) --- */
+/* This covers both .glass-nav and <header> tags */
+.glass-nav, header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 8%; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo { 
+    font-family: var(--font-heading); 
+    font-size: 2rem; 
+    color: var(--dark); 
+    text-decoration: none; 
+    letter-spacing: -1px;
+}
+
+.logo span { color: var(--accent); }
+
+/* Navigation List Styling for both versions */
+.glass-nav ul, header nav ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 40px; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Link Styling for both versions */
+.glass-nav ul li a, header nav ul li a { 
+    text-decoration: none; 
+    color: var(--dark); 
+    font-weight: 700; 
+    font-size: 0.95rem; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.glass-nav ul li a:hover, header nav ul li a:hover { 
+    color: var(--accent); 
+    transform: translateY(-2px); 
+}
+
+/* --- 3. COMMON PAGE STRUCTURE --- */
+main, .page-header, .hero-split { 
+    padding-top: 100px; 
+}
+
+.page-container { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    padding: 0 5%; 
+}
+
+/* --- 4. HOME PAGE EXCLUSIVE (Scoped to .hp-exclusive) --- */
+.hp-exclusive .hero-split {
+    display: grid; 
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 140px 8% 60px; 
+    gap: 60px;
+}
+
+.hp-exclusive .hero-content h1 { 
+    font-size: 7rem; 
+    line-height: 0.85; 
+    margin-bottom: 30px; 
+    letter-spacing: -3px;
+}
+
+.hp-exclusive .hero-content p { 
+    font-size: 1.4rem; 
+    color: #555; 
+    max-width: 550px; 
+    margin-bottom: 50px; 
+}
+
+.hp-exclusive .hero-image-container { 
+    position: relative; 
+    height: 75vh; 
+}
+
+.hp-exclusive .hero-image {
+    width: 100%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center;
+    border-radius: 40px; 
+    position: relative; 
+    z-index: 2; 
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+}
+
+.hp-exclusive .values-bento-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+.hp-exclusive .value-box { 
+    background: var(--gray); 
+    padding: 40px; 
+    border-radius: 25px; 
+    transition: 0.4s; 
+}
+
+.hp-exclusive .value-box:hover { 
+    background: var(--white); 
+    border-color: var(--accent); 
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.hp-exclusive .bio-section { 
+    background: var(--dark); 
+    color: var(--white); 
+    padding: 150px 0; 
+}
+
+.hp-exclusive .massive-bio-wrapper { 
+    display: flex; 
+    gap: 80px; 
+    align-items: center; 
+}
+
+.hp-exclusive .bio-image-huge {
+    flex: 0 0 55%; 
+    height: 850px; 
+    border-radius: 40px; 
+    background-size: cover; 
+    background-position: center;
+    box-shadow: 0 0 50px rgba(230, 57, 70, 0.3);
+}
+
+.hp-exclusive .bio-content-huge { flex: 1; }
+.hp-exclusive .bio-content-huge h2 { font-size: 6rem; line-height: 0.9; }
+
+.hp-exclusive .cta-group { display: flex; gap: 20px; }
+.hp-exclusive .btn-primary, .hp-exclusive .btn-secondary {
+    padding: 20px 45px; 
+    border-radius: 12px; 
+    text-decoration: none;
+    font-weight: 800; 
+    font-family: var(--font-heading);
+    text-transform: uppercase; 
+    font-size: 1.1rem;
+}
+.hp-exclusive .btn-primary { background: var(--dark); color: var(--white); }
+.hp-exclusive .btn-secondary { border: 3px solid var(--dark); color: var(--dark); }
+
+/* --- 5. SCHEDULE & TOURNAMENTS STYLES --- */
+.page-header { 
+    text-align: center; 
+    padding: 150px 0 80px; 
+    background: var(--main-bg); 
+}
+
+.schedule-day { 
+    background: var(--white); 
+    padding: 45px; 
+    border-radius: 25px; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); 
+    margin-bottom: 40px;
+}
+
+.schedule-day h3 { 
+    color: var(--accent); 
+    margin-bottom: 30px; 
+    font-size: 2.5rem; 
+}
+
+.class-item { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 25px 0; 
+    border-bottom: 1px solid #eee; 
+    font-size: 1.2rem;
+}
+
+.class-time { font-weight: 800; }
+
+.event-card {
+    background: var(--white); 
+    padding: 40px; 
+    border-radius: 20px; 
+    margin-bottom: 30px;
+    display: flex; 
+    gap: 40px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-left: 8px solid transparent; 
+    transition: 0.3s ease;
+}
+
+.event-card:hover { 
+    border-left: 8px solid var(--accent); 
+    transform: translateX(10px); 
+}
+
+/* --- 6. FOOTER --- */
+.main-footer { 
+    background: #0a0a0a; 
+    color: #555; 
+    padding: 60px 0; 
+    border-top: 1px solid #222; 
+}
+
+.footer-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* --- 7. RESPONSIVE --- */
+@media (max-width: 1200px) {
+    .hp-exclusive .hero-split, 
+    .hp-exclusive .massive-bio-wrapper, 
+    .event-card { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    
+    .hp-exclusive .hero-content h1 { font-size: 4.5rem; }
+    .hp-exclusive .bio-image-huge { width: 100%; height: 50vh; flex: none; }
+    .hp-exclusive .cta-group { justify-content: center; }
+    header, .glass-nav { padding: 15px 5%; }
+    header nav ul, .glass-nav ul { gap: 20px; }
+}
